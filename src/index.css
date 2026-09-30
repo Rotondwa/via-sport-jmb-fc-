@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Tight", Inter, sans-serif;
+  --font-display: Syne, "Inter Tight", sans-serif;
+  --color-ink: #0b0b0c;
+  --color-paper: #f6f6f3;
+  --color-via: #d10a11;
+  --color-sky: #6cb4e5;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+
+.kit-float {
+  animation: float 5s ease-in-out infinite;
+}
