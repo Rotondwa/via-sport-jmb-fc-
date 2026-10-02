@@ -3,8 +3,7 @@ import { useEffect, useState } from "react"
 import { images, navLinks } from "../data/content"
 
 const headerStyles = {
-  scrolled:
-    "bg-white/90 backdrop-blur-xl border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]",
+  scrolled: "bg-white/90 backdrop-blur-xl border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]",
   resting: "bg-paper border-black/10",
 }
 
@@ -20,33 +19,26 @@ export function SiteHeader() {
 
   const handleToggleMenu = () => setIsMenuOpen((open) => !open)
   const handleCloseMenu = () => setIsMenuOpen(false)
-
   const headerClass = isScrolled ? headerStyles.scrolled : headerStyles.resting
   const MenuIcon = isMenuOpen ? X : Menu
 
   return (
     <header className={`sticky top-0 z-40 border-b transition-all ${headerClass}`}>
       <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-5 md:h-[80px] md:px-8 lg:px-10">
-        <a href="#top" className="group flex items-center gap-3">
-          <div className="h-[42px] w-[42px] overflow-hidden rounded-full border border-black/10 bg-white p-[3px]">
-            <img
-              src={images.crestRed}
-              alt="Via Sport JBM crest"
-              className="h-full w-full rounded-full object-contain"
-            />
-          </div>
+        <a href="#top" className="flex items-center gap-3">
+          <img
+            src={images.crestBlack}
+            alt="Via Sport JBM black crest"
+            className="h-[42px] w-[42px] rounded-full bg-white object-contain p-[3px]"
+          />
           <div className="hidden leading-[0.9] sm:block">
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[16px] font-black tracking-[-0.02em]">VIA SPORT</span>
-              <span className="h-[14px] w-px bg-black/20" />
-              <span className="text-[16px] font-black tracking-[0.04em] text-via">JBM</span>
-            </div>
+            <div className="text-[16px] font-black tracking-[-0.02em]">VIA SPORT JBM</div>
             <div className="mt-[2px] text-[10px] font-semibold tracking-[0.28em] uppercase opacity-60">
               Football Club • JHB
             </div>
           </div>
         </a>
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -59,10 +51,10 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="#kits"
-            className="hidden h-10 items-center gap-2 rounded-full bg-ink px-5 text-[12px] font-bold tracking-[0.12em] text-white uppercase transition-colors hover:bg-black md:inline-flex"
+            href="#contact"
+            className="hidden h-10 items-center rounded-full bg-ink px-5 text-[12px] font-bold tracking-[0.12em] text-white uppercase md:inline-flex"
           >
-            Join the Club
+            Email the club
           </a>
           <button
             type="button"
@@ -88,13 +80,6 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#kits"
-              onClick={handleCloseMenu}
-              className="mt-2 inline-flex h-12 items-center justify-center rounded-full bg-ink text-[13px] font-bold tracking-[0.12em] text-white uppercase"
-            >
-              Join the Club
-            </a>
           </div>
         </div>
       ) : null}

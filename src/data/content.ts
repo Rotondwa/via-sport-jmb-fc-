@@ -1,138 +1,117 @@
 export const images = {
-  crestRed: "/images/crest-red.jpg",
   crestBlack: "/images/crest-black.jpg",
-  crestBlue: "/images/crest-blue.jpg",
-  kitHome: "/images/kit-home.jpg",
-  kitAway: "/images/kit-away.jpg",
-  kitThird: "/images/kit-third.jpg",
-  diamond: "/images/diamond.jpg",
+  crestRed: "/images/crest-red.jpg",
+  pattern: "/images/black-pattern.png",
+  kitSky: "/images/kit-sky.jpg",
+  kitPink: "/images/kit-pink.jpg",
+  kitBlack: "/images/kit-black.jpg",
+  kitRed: "/images/kit-red.jpg",
+  feature: "/images/kit-pink.jpg",
 }
 
-export const navLinks = [
-  { label: "Club", href: "#club" },
-  { label: "First Team", href: "#fixtures" },
-  { label: "Kits", href: "#kits" },
-  { label: "Fixtures", href: "#fixtures" },
-  { label: "Academy", href: "#manifesto" },
-  { label: "Shop", href: "#kits" },
-  { label: "Contact", href: "#footer" },
-]
+export const contactEmail = "club@viasportjbmfc.co.za"
 
-export const manifestoPoints = [
-  {
-    key: "01 / HERITAGE",
-    title: "Spear Bearer",
-    description:
-      "The crest warrior stands upright — rooted in JBM, reaching for the continent. Red for blood, sky for open skyline, black for grit.",
-  },
-  {
-    key: "02 / GRIT",
-    title: "Diamond Standard",
-    description:
-      "That CENTO diamond collar isn’t decoration. It’s tape from the touchline — repeated, aligned, earned. Every seam carries it.",
-  },
-  {
-    key: "03 / COMMUNITY",
-    title: "Via Sport",
-    description:
-      "Johannesburg-built, academy-first. Via means through — we play through pressure, through community, through generations.",
-  },
+export const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Family", href: "#family" },
+  { label: "Abazingeli", href: "#abazingeli" },
+  { label: "Fixtures", href: "#fixtures" },
+  { label: "Store", href: "#store" },
+  { label: "Contact", href: "#contact" },
 ]
 
 export const kits = [
   {
-    image: images.kitHome,
-    title: "Via Sport JBM FC Home Kit 2025/26",
-    eyebrow: "HOME • AUTHENTIC",
-    label: "KIT 01 — HOME",
-    colorway: "Via Red / Sky / Jet Black",
-    description:
-      "PUMA engineered, HALE OUTDOOR CENTO diamond neck tape, DON sleeve",
-    accent: "bg-via",
+    image: images.kitSky,
+    title: "Sky shirt",
+    colorway: "Sky",
+    hideTitle: true,
   },
   {
-    image: images.kitAway,
-    title: "Away Shirt 25/26",
-    eyebrow: "AWAY • AUTHENTIC",
-    label: "KIT 02 — AWAY",
-    colorway: "Sky Blue / Black / White",
-    description:
-      "Skyline away. Black diamond detail. Worn for big away days across Africa.",
-    accent: "bg-sky",
+    image: images.kitPink,
+    title: "Pink shirt",
+    colorway: "Pink",
+    hideTitle: false,
   },
   {
-    image: images.kitThird,
-    title: "Third Shirt 25/26",
-    eyebrow: "THIRD • AUTHENTIC",
-    label: "KIT 03 — THIRD",
-    colorway: "Jet Black / White / Red",
-    description:
-      "Night mode. White diamond tape. The streetwear cut — for after full-time.",
-    accent: "bg-ink",
+    image: images.kitBlack,
+    title: "Black shirt",
+    colorway: "JBM Black",
+    hideTitle: false,
+  },
+  {
+    image: images.kitRed,
+    title: "Red shirt",
+    colorway: "Via Red",
+    hideTitle: false,
   },
 ]
 
-export const fixtures = [
+export const communities = [
+  "Alexandra",
+  "Katlehong",
+  "Thokoza",
+  "Vosloorus",
+  "Soweto",
+  "Thembisa",
+]
+
+export const familyGroups = [
   {
-    date: "SAT 17 MAY • 15:00",
-    home: "VIA SPORT JBM FC",
-    away: "JHB City FC",
-    competition: "Gauteng Premier",
-    status: "NEXT",
-    ground: "Via Park",
+    id: "board",
+    title: "The Board",
+    members: [
+      { id: "board-1", name: "Board member" },
+      { id: "board-2", name: "Board member" },
+      { id: "board-3", name: "Board member" },
+    ],
   },
   {
-    date: "WED 21 MAY • 19:30",
-    home: "Soweto United",
-    away: "VIA SPORT JBM FC",
-    competition: "Cento Cup QF",
-    status: "AWAY",
-    ground: "Dobsonville",
+    id: "management",
+    title: "Management",
+    members: [
+      { id: "management-1", name: "Management" },
+      { id: "management-2", name: "Management" },
+      { id: "management-3", name: "Management" },
+    ],
   },
   {
-    date: "SAT 24 MAY • 15:00",
-    home: "VIA SPORT JBM FC",
-    away: "Pretoria Stars",
-    competition: "Gauteng Premier",
-    status: "HOME",
-    ground: "Via Park",
+    id: "technical",
+    title: "Technical Team",
+    members: [
+      { id: "technical-1", name: "Technical" },
+      { id: "technical-2", name: "Technical" },
+      { id: "technical-3", name: "Technical" },
+    ],
   },
 ]
 
-export const leagueTable = [
-  { position: 1, club: "Via Sport JBM FC", played: 8, goalDifference: "+12", points: 19, isUs: true },
-  { position: 2, club: "JHB City FC", played: 8, goalDifference: "+7", points: 17, isUs: false },
-  { position: 3, club: "Soweto United", played: 8, goalDifference: "+5", points: 16, isUs: false },
-  { position: 4, club: "Pretoria Stars", played: 8, goalDifference: "+2", points: 14, isUs: false },
-  { position: 5, club: "Alexandra FC", played: 8, goalDifference: "-1", points: 11, isUs: false },
+export const seasonGlance = [
+  { value: "22", label: "Matchdays" },
+  { value: "Only JBM", label: "Club focus" },
+  { value: "22", label: "Total matches" },
+  { value: "Sep 2026 – Mar 2027", label: "Season" },
+  { value: "11 Home", label: "Nike Centre Soweto" },
+  { value: "11 Away", label: "Across Gauteng" },
+  { value: "Stream A", label: "ABC Motsepe League Gauteng" },
+  { value: "25 Sep 2026 → 27 Mar 2027", label: "Window" },
 ]
 
-export const footerColumns = [
+export const fixturePhases = [
   {
-    title: "Club",
-    links: [
-      { label: "Our Story", href: "#club" },
-      { label: "First Team", href: "#fixtures" },
-      { label: "Academy", href: "#manifesto" },
-      { label: "Via Park", href: "#fixtures" },
-    ],
+    id: "phase-1",
+    title: "Phase 1 — Sep–Oct 2026",
+    detail: "Weeks 1–6",
+    summary: "6 Matchdays • 3 Home • 3 Away",
+    tone: "dust",
+    weeks: ["W1", "W2", "W3", "W4", "W5", "W6"],
   },
   {
-    title: "Shop",
-    links: [
-      { label: "CENTO 25/26", href: "#kits" },
-      { label: "Home Shirt", href: "#kits" },
-      { label: "Away Shirt", href: "#kits" },
-      { label: "Third Shirt", href: "#kits" },
-    ],
-  },
-  {
-    title: "Connect",
-    links: [
-      { label: "Instagram", href: "#footer" },
-      { label: "TikTok", href: "#footer" },
-      { label: "YouTube", href: "#footer" },
-      { label: "Contact", href: "#footer" },
-    ],
+    id: "phase-2",
+    title: "Phase 2 — Nov–Dec 2026",
+    detail: "Weeks 7–11 • Before Break",
+    summary: "5 Matchdays • 3 Home • 2 Away",
+    tone: "paper",
+    weeks: ["W7", "W8", "W9", "W10", "W11"],
   },
 ]
