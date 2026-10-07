@@ -53,6 +53,21 @@
   }
 }
 
+@keyframes family-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.family-in {
+  animation: family-in 0.55s ease;
+}
+
 .spell-letter {
   display: inline-block;
   opacity: 0;

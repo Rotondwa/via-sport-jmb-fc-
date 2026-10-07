@@ -2,6 +2,8 @@ import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
 import { images, navLinks } from "../data/content"
 
+const ticker = "HALE OUTDOOR × VIA SPORT JBM FC — 2025/26 CENTO Collection Out Now —"
+
 const headerStyles = {
   scrolled: "bg-white/90 backdrop-blur-xl border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]",
   resting: "bg-paper border-black/10",
@@ -24,6 +26,24 @@ export function SiteHeader() {
 
   return (
     <header className={`sticky top-0 z-40 border-b transition-all ${headerClass}`}>
+      <p className="sr-only">{ticker}</p>
+      <div aria-hidden="true" className="overflow-hidden bg-ink text-white">
+        <div className="marquee-track flex w-max">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex">
+              {Array.from({ length: 6 }, (_, index) => (
+                <span
+                  key={`${copy}-${index}`}
+                  className="inline-flex items-center gap-3 px-6 py-2.5 text-[11px] font-bold tracking-[0.16em] whitespace-nowrap"
+                >
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-via" />
+                  {ticker}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-5 md:h-[80px] md:px-8 lg:px-10">
         <a href="#top" className="flex items-center gap-3">
           <img

@@ -97,21 +97,139 @@ export const seasonGlance = [
   { value: "25 Sep 2026 → 27 Mar 2027", label: "Window" },
 ]
 
-export const fixturePhases = [
+type FixtureSide = "Home" | "Away"
+
+export const fixturePhases: {
+  id: string
+  title: string
+  detail: string
+  summary: string
+  note: string
+  matches: {
+    week: string
+    date: string
+    time: string
+    home: string
+    away: string
+    venue: string
+    side: FixtureSide
+  }[]
+}[] = [
   {
     id: "phase-1",
     title: "Phase 1 — Sep–Oct 2026",
-    detail: "Weeks 1–6",
-    summary: "6 Matchdays • 3 Home • 3 Away",
-    tone: "dust",
-    weeks: ["W1", "W2", "W3", "W4", "W5", "W6"],
+    detail: "Weeks 1–6 — Only JBM fixtures",
+    summary: "6 Matchdays • 3 Home at Nike Centre • 3 Away",
+    note: "Season opening — Dust to Glory",
+    matches: [
+      {
+        week: "W1",
+        date: "Fri 25/09/2026",
+        time: "14:00",
+        home: "Via Sport JBM FC",
+        away: "Boipatong FC",
+        venue: "Nike Centre",
+        side: "Home",
+      },
+      {
+        week: "W2",
+        date: "Sat 03/10/2026",
+        time: "15:00",
+        home: "Ben 10 FC",
+        away: "Via Sport JBM FC",
+        venue: "George Thabe Stadium",
+        side: "Away",
+      },
+      {
+        week: "W3",
+        date: "Fri 09/10/2026",
+        time: "14:00",
+        home: "Via Sport JBM FC",
+        away: "Dinoko City FC",
+        venue: "Nike Centre",
+        side: "Home",
+      },
+      {
+        week: "W4",
+        date: "Sat 17/10/2026",
+        time: "15:00",
+        home: "Tembisa Hollywood Thunder",
+        away: "Via Sport JBM FC",
+        venue: "Mehlareng Stadium",
+        side: "Away",
+      },
+      {
+        week: "W5",
+        date: "Fri 23/10/2026",
+        time: "14:00",
+        home: "Via Sport JBM FC",
+        away: "Tshwane South College FC",
+        venue: "Nike Centre",
+        side: "Home",
+      },
+      {
+        week: "W6",
+        date: "Sat 31/10/2026",
+        time: "15:00",
+        home: "Rrr Rams Football Club",
+        away: "Via Sport JBM FC",
+        venue: "Davidsonville Stadium",
+        side: "Away",
+      },
+    ],
   },
   {
     id: "phase-2",
     title: "Phase 2 — Nov–Dec 2026",
-    detail: "Weeks 7–11 • Before Break",
-    summary: "5 Matchdays • 3 Home • 2 Away",
-    tone: "paper",
-    weeks: ["W7", "W8", "W9", "W10", "W11"],
+    detail: "Weeks 7–11 — Before the break",
+    summary: "5 Matchdays • 3 Home at Nike Centre • 2 Away",
+    note: "Last push before the break",
+    matches: [
+      {
+        week: "W7",
+        date: "Fri 06/11/2026",
+        time: "14:00",
+        home: "Via Sport JBM FC",
+        away: "Free Agents FC",
+        venue: "Nike Centre",
+        side: "Home",
+      },
+      {
+        week: "W8",
+        date: "Sat 14/11/2026",
+        time: "15:00",
+        home: "Univ. of Johannesburg",
+        away: "Via Sport JBM FC",
+        venue: "UJ Auckland Park",
+        side: "Away",
+      },
+      {
+        week: "W9",
+        date: "Fri 20/11/2026",
+        time: "14:00",
+        home: "Via Sport JBM FC",
+        away: "La Masia FC",
+        venue: "Nike Centre",
+        side: "Home",
+      },
+      {
+        week: "W10",
+        date: "Sat 28/11/2026",
+        time: "15:00",
+        home: "Lesco FC",
+        away: "Via Sport JBM FC",
+        venue: "Lenasia Stadium",
+        side: "Away",
+      },
+      {
+        week: "W11",
+        date: "Fri 04/12/2026",
+        time: "14:00",
+        home: "Via Sport JBM FC",
+        away: "Ssu M-17 FC",
+        venue: "Nike Centre",
+        side: "Home",
+      },
+    ],
   },
 ]

@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type Dispatch, type SetStateAction } from "react"
+import { useEffect, useState, type ChangeEvent, type Dispatch, type SetStateAction } from "react"
 import { familyGroups } from "../data/content"
 
 type PortraitMap = Record<string, string>
@@ -51,6 +51,18 @@ function FamilyGroup({ group, portraits, onPortraitsChange }: Props) {
   const activeMember = group.members.find((member) => member.id === activeId) ?? group.members[0]
   const portrait = activeMember ? portraits[activeMember.id] : undefined
 
+  useEffect(() => {
+    if (group.members.length < 2) return
+    const timer = window.setInterval(() => {
+      setActiveId((current) => {
+        const index = group.members.findIndex((member) => member.id === current)
+        const next = group.members[(index + 1) % group.members.length]
+        return next?.id ?? current
+      })
+    }, 3200)
+    return () => window.clearInterval(timer)
+  }, [group.members, activeId])
+
   const handleSelect = (id: string) => () => setActiveId(id)
 
   const handleUpload = (event: ChangeEvent<HTMLInputElement>) => {
@@ -92,16 +104,18 @@ function FamilyGroup({ group, portraits, onPortraitsChange }: Props) {
         })}
       </div>
       <div className="relative grid min-h-[420px] place-items-center overflow-hidden rounded-[28px] border border-dashed border-black/20 bg-paper">
-        {portrait ? (
-          <img src={portrait} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        ) : (
-          <div className="px-6 text-center">
-            <div className="text-[11px] font-bold tracking-[0.2em] uppercase opacity-40">Portrait</div>
-            <div className="mt-2 text-[22px] font-black tracking-[-0.03em] uppercase">
-              {activeMember.name}
+        <div key={activeMember.id} className="family-in absolute inset-0 grid place-items-center">
+          {portrait ? (
+            <img src={portrait} alt="" className="h-full w-full object-cover" />
+          ) : (
+            <div className="px-6 text-center">
+              <div className="text-[11px] font-bold tracking-[0.2em] uppercase opacity-40">Portrait</div>
+              <div className="mt-2 text-[22px] font-black tracking-[-0.03em] uppercase">
+                {activeMember.name} {group.members.findIndex((member) => member.id === activeMember.id) + 1}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
         <label className="absolute right-4 bottom-4 cursor-pointer rounded-full bg-ink px-4 py-2 text-[11px] font-bold tracking-[0.14em] text-white uppercase">
           Upload image
           <input type="file" accept="image/*" className="sr-only" onChange={handleUpload} />
