@@ -24,7 +24,7 @@ export function Hero() {
               href="#store"
               className="inline-flex h-12 items-center rounded-full bg-ink px-7 text-[12px] font-bold tracking-[0.14em] text-white uppercase"
             >
-              Hale Store
+              Via Store
             </a>
             <a
               href="#about"

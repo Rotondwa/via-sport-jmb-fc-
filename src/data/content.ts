@@ -75,6 +75,9 @@ export const storePieces = [
   { image: "/images/store-jacket-chairman.jpg", title: "Denim jacket" },
   { image: "/images/store-cap-red.jpg", title: "Abazingeli cap — Via Red" },
   { image: "/images/store-cap-sky.jpg", title: "Abazingeli cap — Sky" },
+  { image: "/images/store-jacket-baseball.jpg", title: "Via baseball jacket" },
+  { image: "/images/store-jacket-track.jpg", title: "Black track jacket" },
+  { image: "/images/store-jacket-denim-white.jpg", title: "White denim jacket" },
 ]
 
 export const communities = [
