@@ -1,11 +1,8 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useEffect, useState } from "react"
-import { contactEmail, kits, storePieces } from "../data/content"
+import { contactEmail, storePieces } from "../data/content"
 
-const products = [
-  ...kits.map((kit) => ({ image: kit.image, title: kit.title })),
-  ...storePieces,
-]
+const products = storePieces
 
 const readPerView = () => {
   if (window.matchMedia("(min-width: 1280px)").matches) return 4

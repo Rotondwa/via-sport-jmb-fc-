@@ -1,6 +1,7 @@
 import { About } from "./components/about"
 import { AbazingeliMark } from "./components/abazingeli-mark"
 import { Contact } from "./components/contact"
+import { CrestStudy } from "./components/crest-study"
 import { Family } from "./components/family"
 import { Fixtures } from "./components/fixtures"
 import { Hero } from "./components/hero"
@@ -14,6 +15,7 @@ export function App() {
       <SiteHeader />
       <Hero />
       <About />
+      <CrestStudy />
       <Family />
       <AbazingeliMark />
       <Fixtures />

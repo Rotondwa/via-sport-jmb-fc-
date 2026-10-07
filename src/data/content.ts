@@ -2,10 +2,10 @@ export const images = {
   crestBlack: "/images/crest-black.jpg",
   crestRed: "/images/crest-red.jpg",
   pattern: "/images/black-pattern.png",
-  kitSky: "/images/kit-sky.jpg",
+  kitSky: "/images/kit-blue.jpg",
   kitPink: "/images/kit-pink.jpg",
-  kitBlack: "/images/kit-black.jpg",
-  kitRed: "/images/kit-red.jpg",
+  kitBlack: "/images/kit-black-via.jpg",
+  kitRed: "/images/kit-red-via.jpg",
   feature: "/images/kit-pink.jpg",
 }
 
@@ -22,27 +22,45 @@ export const navLinks = [
 
 export const kits = [
   {
+    image: images.kitRed,
+    title: "Red shirt",
+    colorway: "Via Red",
+    hideTitle: false,
+    story: {
+      role: "Primary",
+      name: "Red",
+      body: "Red for conviction, matchday, first team, crest first",
+      tags: ["Conviction", "Blood", "Heart"],
+    },
+  },
+  {
     image: images.kitSky,
-    title: "Sky shirt",
-    colorway: "Sky",
+    title: "Blue shirt",
+    colorway: "Blue",
     hideTitle: true,
+    story: {
+      role: "Away",
+      name: "Blue",
+      body: "Academy, social and sky kits for the Highveld",
+      tags: ["Sky", "Highveld", "Open"],
+    },
+  },
+  {
+    image: images.kitBlack,
+    title: "Black shirt",
+    colorway: "Jet Black",
+    hideTitle: false,
+    story: {
+      role: "Street",
+      name: "Jet Black",
+      body: "Black for the streets that raised us, training, travel, grit kit",
+      tags: ["Grit", "Shield", "Night"],
+    },
   },
   {
     image: images.kitPink,
     title: "Pink shirt",
     colorway: "Pink",
-    hideTitle: false,
-  },
-  {
-    image: images.kitBlack,
-    title: "Black shirt",
-    colorway: "JBM Black",
-    hideTitle: false,
-  },
-  {
-    image: images.kitRed,
-    title: "Red shirt",
-    colorway: "Via Red",
     hideTitle: false,
   },
 ]
@@ -54,7 +72,7 @@ export const storePieces = [
   { image: "/images/store-jacket-white.jpg", title: "White diamond jacket" },
   { image: "/images/store-bomber-black.jpg", title: "Black bomber" },
   { image: "/images/store-overalls.jpg", title: "Abazingeli overalls" },
-  { image: "/images/store-jacket-chairman.jpg", title: "Chairman jacket" },
+  { image: "/images/store-jacket-chairman.jpg", title: "Denim jacket" },
   { image: "/images/store-cap-red.jpg", title: "Abazingeli cap — Via Red" },
   { image: "/images/store-cap-sky.jpg", title: "Abazingeli cap — Sky" },
 ]

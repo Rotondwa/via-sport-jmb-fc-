@@ -2,26 +2,28 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useEffect, useState } from "react"
 import { kits } from "../data/content"
 
+const heroKits = kits.filter((kit) => kit.story)
+
 const patternBand =
   "h-3.5 bg-[#050505] bg-[url('/images/black-pattern.png')] bg-[length:14px] bg-repeat"
 
 export function KitCarousel() {
   const [index, setIndex] = useState(0)
-  const kit = kits[index]
+  const kit = heroKits[index]
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % kits.length)
+      setIndex((current) => (current + 1) % heroKits.length)
     }, 4200)
     return () => window.clearInterval(timer)
   }, [])
 
   const handlePrevious = () => {
-    setIndex((current) => (current - 1 + kits.length) % kits.length)
+    setIndex((current) => (current - 1 + heroKits.length) % heroKits.length)
   }
 
   const handleNext = () => {
-    setIndex((current) => (current + 1) % kits.length)
+    setIndex((current) => (current + 1) % heroKits.length)
   }
 
   const handleSelect = (nextIndex: number) => () => setIndex(nextIndex)
@@ -38,16 +40,25 @@ export function KitCarousel() {
           alt={kit.title}
           className="kit-float h-auto max-h-[380px] w-full max-w-[380px] object-contain drop-shadow-[0_28px_50px_rgba(0,0,0,0.55)] md:max-h-[460px] md:max-w-[420px]"
         />
-        <div className="mt-5 w-full max-w-[420px] pr-24 text-ink">
-          <div className="text-[18px] font-black tracking-[-0.03em]">
-            Via Sport JBM FC Home Kit 2025/26
+        {kit.story ? (
+          <div className="mt-5 w-full max-w-[420px] pr-24 text-ink">
+            <p className="text-[11px] font-bold tracking-[0.18em] text-ink/50 uppercase">{kit.story.role}</p>
+            <p className="mt-1 text-[28px] leading-none font-black tracking-[-0.04em] uppercase">
+              {kit.story.name}
+            </p>
+            <p className="mt-3 max-w-[34ch] text-[13px] leading-[1.45] font-medium text-ink/70">{kit.story.body}</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {kit.story.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-black/15 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] uppercase"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="mt-1 text-[12px] font-bold tracking-[0.16em] text-ink/60">KIT 01 — HOME</div>
-          <div className="mt-2 text-[13px] font-bold tracking-[-0.01em]">Via Red / Sky / Jet Black</div>
-          <p className="mt-1 text-[12px] leading-[1.45] font-medium text-ink/60">
-            HALE OUTDOOR CENTO diamond neck tape, DON sleeve
-          </p>
-        </div>
+        ) : null}
         <div className="absolute right-4 bottom-4 flex items-center gap-2">
           <button
             type="button"
@@ -68,7 +79,7 @@ export function KitCarousel() {
         </div>
       </div>
       <div className="flex justify-center gap-2 pb-4">
-        {kits.map((item, itemIndex) => (
+        {heroKits.map((item, itemIndex) => (
           <button
             key={item.image}
             type="button"

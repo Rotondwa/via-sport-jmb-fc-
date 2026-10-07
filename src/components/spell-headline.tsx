@@ -1,4 +1,4 @@
-const lines = ["BUILT!", "For The", "Badge."]
+const lines = ["BUILT", "For The", "Badge!"]
 
 const spellLetters = (text: string, start: number) =>
   [...text].map((letter, index) => (
