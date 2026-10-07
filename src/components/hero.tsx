@@ -5,8 +5,7 @@ import { SpellHeadline } from "./spell-headline"
 export function Hero() {
   return (
     <section className="mx-auto max-w-[1440px] px-5 pt-8 pb-14 md:px-8 md:pt-12 lg:px-10">
-      <div className="grid items-start gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
-        <KitCarousel />
+      <div className="grid items-start gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         <div>
           <div className="inline-flex items-center gap-3">
             <img
@@ -42,12 +41,8 @@ export function Hero() {
               About Via Sport
             </a>
           </div>
-          <img
-            src={images.feature}
-            alt="Via Sport shirt"
-            className="mt-10 w-full max-w-[520px] object-contain"
-          />
         </div>
+        <KitCarousel />
       </div>
     </section>
   )
