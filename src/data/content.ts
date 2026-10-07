@@ -47,6 +47,18 @@ export const kits = [
   },
 ]
 
+export const storePieces = [
+  { image: "/images/store-hoodie-black.jpg", title: "Black hoodie" },
+  { image: "/images/store-tee-white.jpg", title: "White spear tee" },
+  { image: "/images/store-tee-black.jpg", title: "Black spear tee" },
+  { image: "/images/store-jacket-white.jpg", title: "White diamond jacket" },
+  { image: "/images/store-bomber-black.jpg", title: "Black bomber" },
+  { image: "/images/store-overalls.jpg", title: "Abazingeli overalls" },
+  { image: "/images/store-jacket-chairman.jpg", title: "Chairman jacket" },
+  { image: "/images/store-cap-red.jpg", title: "Abazingeli cap — Via Red" },
+  { image: "/images/store-cap-sky.jpg", title: "Abazingeli cap — Sky" },
+]
+
 export const communities = [
   "Alexandra",
   "Katlehong",

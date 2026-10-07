@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react"
+import { useState } from "react"
 import { fixturePhases, seasonGlance } from "../data/content"
 
 const club = "Via Sport JBM FC"
@@ -15,6 +16,10 @@ const sideMark = {
 }
 
 export function Fixtures() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [opening, ...later] = fixturePhases
+  const handleToggle = () => setIsOpen((current) => !current)
+
   return (
     <section id="fixtures" className="bg-[#f3f1ec]">
       <div className="mx-auto grid max-w-[1440px] items-start gap-5 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:px-10">
@@ -39,62 +44,20 @@ export function Fixtures() {
               </p>
             </div>
             <div className="mt-6 grid gap-6">
-              {fixturePhases.map((phase) => (
-                <div key={phase.id} className="grid gap-3">
-                  <div>
-                    <p className="text-[11px] font-bold tracking-[0.16em] text-[#EF0107] uppercase">
-                      {phase.detail}
-                    </p>
-                    <p className="mt-1 text-[16px] font-black tracking-[-0.03em] uppercase">{phase.title}</p>
-                    <p className="mt-1 text-[12px] font-bold tracking-[0.08em] text-white/50 uppercase">
-                      {phase.summary} • {phase.note}
-                    </p>
-                  </div>
-                  {phase.matches.map((match) => (
-                    <div
-                      key={match.week}
-                      className="flex items-center gap-4 rounded-2xl bg-white/10 px-4 py-4 md:px-5"
-                    >
-                      <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-[0.12em] text-white/45 uppercase">
-                          <span>
-                            {match.date} • {match.time}
-                          </span>
-                          <span>{match.week}</span>
-                          <span className={`rounded-full px-2 py-1 ${sideMark[match.side].badge}`}>
-                            {match.side}
-                          </span>
-                        </div>
-                        <p className="mt-2 text-[16px] font-black tracking-[-0.03em] uppercase md:text-[18px]">
-                          <span className={match.home === club ? "text-white" : "text-white/70"}>{match.home}</span>
-                          <span className="text-white/40"> vs </span>
-                          <span className={match.away === club ? "text-white" : "text-white/70"}>{match.away}</span>
-                        </p>
-                        <p className="mt-1 text-[13px] text-white/50">{match.venue}</p>
-                      </div>
-                      <span
-                        className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${sideMark[match.side].button}`}
-                      >
-                        <ArrowUpRight size={16} />
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ))}
-              <div className="flex items-center gap-4 rounded-2xl bg-white/10 px-4 py-4 md:px-5">
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-[0.12em] text-white/45 uppercase">
-                    <span>After week 11</span>
-                    <span className="rounded-full bg-white/15 px-2 py-1">Break</span>
-                  </div>
-                  <p className="mt-2 text-[18px] font-black tracking-[-0.03em] uppercase md:text-[20px]">
-                    Team Break
-                  </p>
-                  <p className="mt-1 text-[13px] text-white/55">05 December 2026 — 15 January 2027</p>
-                </div>
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-via text-white">
-                  <ArrowUpRight size={16} />
-                </span>
+              {opening ? <Phase phase={opening} /> : null}
+              {isOpen
+                ? later.map((phase) => <Phase key={phase.id} phase={phase} />)
+                : null}
+              {isOpen ? <TeamBreak /> : null}
+              <div className="flex justify-center">
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  onClick={handleToggle}
+                  className="inline-flex h-11 items-center rounded-full border border-white/20 px-6 text-[12px] font-bold tracking-[0.16em] uppercase"
+                >
+                  {isOpen ? "Less" : "More"}
+                </button>
               </div>
             </div>
             <p className="mt-6 text-center text-[11px] font-bold tracking-[0.14em] text-white/35 uppercase">
@@ -132,4 +95,62 @@ export function Fixtures() {
       </div>
     </section>
   )
+}
+
+function Phase({ phase }: Props) {
+  return (
+    <div className="grid gap-3">
+      <div>
+        <p className="text-[11px] font-bold tracking-[0.16em] text-[#EF0107] uppercase">{phase.detail}</p>
+        <p className="mt-1 text-[16px] font-black tracking-[-0.03em] uppercase">{phase.title}</p>
+        <p className="mt-1 text-[12px] font-bold tracking-[0.08em] text-white/50 uppercase">
+          {phase.summary} • {phase.note}
+        </p>
+      </div>
+      {phase.matches.map((match) => (
+        <div key={match.week} className="flex items-center gap-4 rounded-2xl bg-white/10 px-4 py-4 md:px-5">
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-[0.12em] text-white/45 uppercase">
+              <span>
+                {match.date} • {match.time}
+              </span>
+              <span>{match.week}</span>
+              <span className={`rounded-full px-2 py-1 ${sideMark[match.side].badge}`}>{match.side}</span>
+            </div>
+            <p className="mt-2 text-[16px] font-black tracking-[-0.03em] uppercase md:text-[18px]">
+              <span className={match.home === club ? "text-white" : "text-white/70"}>{match.home}</span>
+              <span className="text-white/40"> vs </span>
+              <span className={match.away === club ? "text-white" : "text-white/70"}>{match.away}</span>
+            </p>
+            <p className="mt-1 text-[13px] text-white/50">{match.venue}</p>
+          </div>
+          <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${sideMark[match.side].button}`}>
+            <ArrowUpRight size={16} />
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function TeamBreak() {
+  return (
+    <div className="flex items-center gap-4 rounded-2xl bg-white/10 px-4 py-4 md:px-5">
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-[0.12em] text-white/45 uppercase">
+          <span>After week 11</span>
+          <span className="rounded-full bg-white/15 px-2 py-1">Break</span>
+        </div>
+        <p className="mt-2 text-[18px] font-black tracking-[-0.03em] uppercase md:text-[20px]">Team Break</p>
+        <p className="mt-1 text-[13px] text-white/55">05 December 2026 — 15 January 2027</p>
+      </div>
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-via text-white">
+        <ArrowUpRight size={16} />
+      </span>
+    </div>
+  )
+}
+
+interface Props {
+  phase: (typeof fixturePhases)[number]
 }

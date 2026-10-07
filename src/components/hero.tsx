@@ -1,4 +1,3 @@
-import { images } from "../data/content"
 import { KitCarousel } from "./kit-carousel"
 import { SpellHeadline } from "./spell-headline"
 
@@ -7,19 +6,12 @@ export function Hero() {
     <section className="mx-auto max-w-[1440px] px-5 pt-8 pb-14 md:px-8 md:pt-12 lg:px-10">
       <div className="grid items-start gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         <div>
-          <div className="inline-flex items-center gap-3">
-            <img
-              src={images.crestBlack}
-              alt="Via Sport JBM black crest"
-              className="h-14 w-14 rounded-full bg-white object-contain p-1"
-            />
-            <div className="leading-[0.95]">
-              <div className="text-[15px] font-black tracking-[-0.02em]">VIA SPORT JBM</div>
-              <div className="mt-1 text-[10px] font-bold tracking-[0.22em] uppercase opacity-50">
-                JBM Black
-              </div>
-            </div>
-          </div>
+          <p className="inline-flex items-center gap-2.5 rounded-full border border-black/10 bg-white py-1.5 pr-4 pl-3">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-via" />
+            <span className="text-[11px] font-bold tracking-[0.14em] uppercase">
+              Johannesburg • Est. JBM • Via Sport
+            </span>
+          </p>
           <div className="mt-6">
             <SpellHeadline />
           </div>
