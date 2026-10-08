@@ -117,6 +117,15 @@ export const familyGroups = [
       { id: "technical-3", name: "Technical" },
     ],
   },
+  {
+    id: "players",
+    title: "Players",
+    members: [
+      { id: "player-1", name: "Player" },
+      { id: "player-2", name: "Player" },
+      { id: "player-3", name: "Player" },
+    ],
+  },
 ]
 
 export const seasonGlance = [

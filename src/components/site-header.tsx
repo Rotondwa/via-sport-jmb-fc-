@@ -2,7 +2,7 @@ import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
 import { images, navLinks } from "../data/content"
 
-const ticker = "HALE OUTDOOR × VIA SPORT JBM FC — 2025/26 CENTO Collection Out Now —"
+const ticker = "Hale Outdoor x Via Sport JBM FC- Via Store Coming Soon"
 
 const headerStyles = {
   scrolled: "bg-white/90 backdrop-blur-xl border-black/10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]",
