@@ -55,6 +55,9 @@ export function About() {
             </article>
           ))}
         </div>
+        <p className="mt-14 text-[13px] font-bold tracking-[0.16em] text-white/55 uppercase">
+          Our players draw strength from
+        </p>
         <ul className="mt-4 grid border-t border-white/15 sm:grid-cols-2 lg:grid-cols-3">
           {communities.map((place) => (
             <li
